@@ -25,4 +25,5 @@ public enum Venue {
         int r = rand.nextInt(Venue.values().length);
         return Venue.values()[r];
     }
+    
 }

@@ -18,6 +18,7 @@ public class Driver {
            s = Sport.selectRandomSport();
            
            System.out.println("******->" + s);
+           
           
            Athlete[] athletes = new Athlete[3];
            athletes[0] = new Athlete("Anna", Country.selectRandomCountry(), s, rand.nextInt(10) + 1, 0 );
