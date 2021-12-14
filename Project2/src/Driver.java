@@ -1,7 +1,8 @@
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Random;
-
+import java.util.Scanner;
 
 
 public class Driver {
@@ -9,19 +10,22 @@ public class Driver {
     public static void main(String[] args) {
     	
     	try {
-			FileInputStream inFS = new FileInputStream("events.txt");
+    		FileInputStream fileInputStream = new FileInputStream("Names.txt");
+    		Scanner inFS = new Scanner(fileInputStream);
+    		
+    		while (inFS.hasNext()) {
+        		String currLine = inFS.next();
+        		String[] eventInputStream = currLine.split("%", 2);
+        		driveCompetitions(eventInputStream[0], eventInputStream[1]), eventInputStream[2]);
+        	}
+        	
+        	inFS.close();
+        	
 		} catch (FileNotFoundException e) {
 			System.out.print("Unable to find file");
+		} catch (IOException e) {
+			System.out.print("Unable to close file");
 		}
-    	
-    	
-    	while (inFS.hasNext()) {
-    		String currLine = inFS.next();
-    		String[] eventInputStream = currLine.split("%", 2);
-    		driveCompetitions(eventInputStream[0], eventInputStream[1]), eventInputStream[2]);
-    	}
-    	
-    	inFS.close();
     }
      
     private static void driveCompetitions (String setEvent, String setVenue, String setSport) {
@@ -74,19 +78,24 @@ public class Driver {
     	String name;
     	
     	try {
-    		FileInputStream nameFS = new FileInputStream("Names.txt");
+    		FileInputStream fileInputStream = new FileInputStream("Names.txt");
+    		Scanner nameFS = new Scanner(fileInputStream);
+    		Random randInt = new Random();
+        	int randNum = randInt.nextInt(5163);
+        	
+        	for (int i = 0; i < randNum; ++i) {
+        		name = nameFS.nextLine();
+        	}
+        	
+        	fileInputStream.close();
+        	
 		} catch (FileNotFoundException e) {
 			System.out.print("Unable to find file");
+		} catch (IOException e) {
+			System.out.print("Unable to close file");
 		}
     	
-    	Random randInt = new Random();
-    	int randNum = randInt.nextInt(5163);
     	
-    	for (int i = 0; i < randNum; ++i) {
-    		name = nameFS.next();
-    	}
-    	
-    	nameFS.close();
     	
     	return name;
     }
