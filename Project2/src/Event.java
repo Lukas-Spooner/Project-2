@@ -1,5 +1,5 @@
 
-package edu.century.project;
+
 
 import java.util.Random;
 
@@ -119,7 +119,7 @@ public class Event {
     }
 
     public boolean equals (Event e) {
- 
+
         if (e == null)
         	return false;
         

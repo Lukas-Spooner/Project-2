@@ -1,13 +1,13 @@
-package edu.century.project;
+
 import java.util.Random;
 
 
 public enum Sport {
 
 
-	Skateboarding, Swimming, Karate, Triathlon, ArtisticGymnastics, 
+	Skateboarding, Swimming, MarathonSwimming, Karate, Triathlon, ArtisticGymnastics, 
 	BeachVolleyball, Basketball, Surfing, SportClimbing, Rowing, 
-	Diving, Tennis;
+	Diving, Tennis, Bicycling;
 	
 	public static Sport selectRandomSport() {
 	    Random rand = new Random();

@@ -1,4 +1,4 @@
-package edu.century.project;
+
 
 public class MarathonSwimmer extends Athlete {
 	private int endurance;

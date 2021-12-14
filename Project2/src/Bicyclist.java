@@ -1,11 +1,10 @@
-package edu.century.project;
+
 
 import java.util.Random;
 
 public class Bicyclist extends Athlete {
 
-	private int speed;
-	private Random randGen = new Random();
+	private int speed; 
 	
 	
 	public int getSpeed() {
@@ -18,11 +17,12 @@ public class Bicyclist extends Athlete {
 	
 	@Override
 	public int getSkill() {
-		return skill + ((randGen.nextInt(1000) + 1) % endurance);
+		Random randGen = new Random();
+		return skill + ((randGen.nextInt(1000) + 1) % speed);
 	}
 	
 	@Override
 	public string toString() {
-		return super.toString() + ", Endurance: " + endurance;
+		return super.toString() + ", speed: " + speed;
 	}
 }

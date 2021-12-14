@@ -1,4 +1,4 @@
-package edu.century.project;
+import java.util.Random;
 
 public class Skateboarder extends Athlete {
 	private int style;

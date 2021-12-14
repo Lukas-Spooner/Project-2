@@ -1,4 +1,4 @@
-package edu.century.project;
+
 
 public class Athlete {
     protected String name;
@@ -40,15 +40,6 @@ public class Athlete {
     
     public void setHomeNation(Country home) {
         homeCountry = home;
-    }
-    
-    public Sport getSpecialty() {
-        return specialty;
-    }
-    
-    
-    public void setSpecialty(Sport specialty) {
-        this.specialty = specialty;
     }
     
     public int getSkill() {

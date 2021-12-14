@@ -1,13 +1,13 @@
-package edu.century.project;
+
 
 public class SportClimber extends Athlete {
-	private int strength;
+	private double strength;
 	
 	public int getStrength() {
 		return strength;
 	}
 	
-	public void setStrength(int strength) {
+	public void setStrength(double strength) {
 		this.strength = strength;
 	}
 	
