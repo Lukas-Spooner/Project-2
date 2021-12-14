@@ -1,11 +1,10 @@
 package edu.century.project;
 
 public class Athlete {
-    private String name;
-    private Country homeCountry;
-    private Sport specialty;
-    private int skill;
-    private int medals;
+    protected String name;
+    protected Country homeCountry;
+    protected int skill;
+    protected int medals;
     
     public Athlete() {
         this.name = "DEFAULT";
@@ -97,8 +96,8 @@ public class Athlete {
     
     public String toString () {
         return "Athlete name: " + getName() + ", Home Country: " + getHomeCountry() +
-                ", Specialty: " + getSpecialty() + ", skill level: " + getSkill() + 
-                ", number of medals: " + medals;
+                ", Specialty: " + getSpecialty() + ", Skill level: " + getSkill() + 
+                ", Number of medals: " + medals;
     }
     
     
