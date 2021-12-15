@@ -1,6 +1,5 @@
 
-
-
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Event {
@@ -8,19 +7,18 @@ public class Event {
     private String name;
     private Venue venue;
     private Sport sport;
-    private Athlete[] athletes;
+    private ArrayList<Athlete> athletes = new ArrayList<Athlete>();
     
     public Event () {
     	this.name = "DEFAULT";
     	this.venue = Venue.selectRandomVenue();
     	this.sport = Sport.selectRandomSport();
-    	this.athletes = new Athlete[2];
-    	athletes[0] = new Athlete();
-    	athletes[1] = new Athlete();
+    	athletes.add(new Athlete());
+    	athletes.add(new Athlete());
         
     }
     
-    public Event (String name, Venue venue, Sport sport, Athlete[] athleteList) {
+    public Event (String name, Venue venue, Sport sport, ArrayList<Athlete> athleteList) {
         setName(name);
         setVenue(venue);
         setSport(sport);
@@ -51,22 +49,22 @@ public class Event {
         this.sport = sport;
     }
     
-    public Athlete[] getAthletes() {
-    	Athlete[] copy = new Athlete[athletes.length];
-        for (int i = 0; i < athletes.length; i++) {
-            copy[i] = athletes[i];
+    public ArrayList getAthletes() {
+    	ArrayList<Athlete> copy = new ArrayList<Athlete>();
+        for (int i = 0; i < athletes.size(); i++) {
+            copy.add(athletes.get(i));
         }
         return copy;
      }
     
-    public void setAthletes(Athlete[] athletes) {
+    public void setAthletes(ArrayList<Athlete> athletes) {
     	
-        if (athletes == null || athletes.length < 1) {
+        if (athletes == null || athletes.size() < 1) {
             System.out.println ("Competitions must have at least one Athlete!");
         }
-        Athlete[] copy = new Athlete[athletes.length];
-        for (int i = 0; i < athletes.length; i++) {
-            copy[i] = athletes[i];
+        ArrayList<Athlete> copy = new ArrayList<Athlete>();
+        for (int i = 0; i < athletes.size(); i++) {
+            copy.add(athletes.get(i));
         }
         this.athletes = copy;
     }
@@ -78,11 +76,11 @@ public class Event {
                 " Athletes Competing: ";
         int len;
         if (getAthletes() != null) {
-            len = getAthletes().length;
+            len = getAthletes().size();
         } else len = 0;
         
         for (int i = 0; i < len; i++) {
-            s += getAthletes()[i].getName() + " ";
+            s += ((Athlete) getAthletes().get(i)).getName() + " ";
         }
         return s;
     }
@@ -90,16 +88,16 @@ public class Event {
     
     public Athlete compete() {
         
-        int len = getAthletes().length;
+        int len = getAthletes().size();
         int scores[] = new int[len];
         Random rand = new Random();
         int r;
                 
         for (int i = 0; i < len; i++) {
             r = rand.nextInt(50) + 1;
-            scores[i] = r + getAthletes()[i].getSkill();
+            scores[i] = r + ((Athlete) getAthletes().get(i)).getSkill();
         }
-        Athlete winner = getAthletes()[findBiggestScore (scores)];   
+        Athlete winner = ((Athlete) getAthletes().get(findBiggestScore(scores)));   
         winner.setMedals(winner.getMedals() + 1);
         return winner;
     }
@@ -119,7 +117,7 @@ public class Event {
     }
 
     public boolean equals (Event e) {
-
+ 
         if (e == null)
         	return false;
         
@@ -137,10 +135,10 @@ public class Event {
         	(getAthletes() != null && e.getAthletes() ==  null)) 
         	return false;
 
-        if (getAthletes().length != e.getAthletes().length)
+        if (getAthletes().size() != e.getAthletes().size())
        		return false;
-        for (int i = 0; i < getAthletes().length; i++) {
-        	if (! getAthletes()[i].equals(e.getAthletes()[i])) {
+        for (int i = 0; i < getAthletes().size(); i++) {
+        	if (! getAthletes().get(i).equals(e.getAthletes().get(i))) {
         		return false;
         	}
         }
@@ -148,7 +146,6 @@ public class Event {
         
             
     }
-    
     
     
 }

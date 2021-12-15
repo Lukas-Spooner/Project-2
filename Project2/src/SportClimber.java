@@ -1,23 +1,23 @@
 
 
 public class SportClimber extends Athlete {
-	private double strength;
+	private int strength;
 	
 	public int getStrength() {
 		return strength;
 	}
 	
-	public void setStrength(double strength) {
+	public void setStrength(int strength) {
 		this.strength = strength;
 	}
 	
 	@Override
 	public int getSkill() {
-		return skill + (.5 * strength);
+		return (int) (skill + (.5 * strength));
 	}
 	
 	@Override
-	public string toString() {
+	public String toString() {
 		return super.toString() + ", Strength: " + strength;
 	}
 }
