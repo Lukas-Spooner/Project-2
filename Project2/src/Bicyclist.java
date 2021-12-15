@@ -1,6 +1,12 @@
 
 import java.util.Random;
 
+/**
+ * This class is a subclass of athlete and represendts a bicyclist.
+ * 
+ * @author Lukas Spooner
+ *
+ */
 public class Bicyclist extends Athlete {
 
 	private int speed; 

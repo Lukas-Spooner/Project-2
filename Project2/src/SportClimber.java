@@ -1,5 +1,10 @@
 
-
+/**
+ * This class is a subclass of athlete and represendts a sport climber.
+ * 
+ * @author Lukas Spooner
+ *
+ */
 public class SportClimber extends Athlete {
 	private int strength;
 	

@@ -1,5 +1,10 @@
 
-
+/**
+ * This class represendts an athlete.
+ * 
+ * @author Lukas Spooner
+ *
+ */
 public class Athlete {
     protected String name;
     protected Country homeCountry;

@@ -1,5 +1,10 @@
-import java.util.Random;
 
+/**
+ * This class is a subclass of athlete and represendts a skateboarder.
+ * 
+ * @author Lukas Spooner
+ *
+ */
 public class Skateboarder extends Athlete {
 	private int style;
 	

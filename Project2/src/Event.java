@@ -49,7 +49,7 @@ public class Event {
         this.sport = sport;
     }
     
-    public ArrayList getAthletes() {
+    public ArrayList<Athlete> getAthletes() {
     	ArrayList<Athlete> copy = new ArrayList<Athlete>();
         for (int i = 0; i < athletes.size(); i++) {
             copy.add(athletes.get(i));
@@ -70,7 +70,7 @@ public class Event {
     }
     
     
-    
+    @Override
     public String toString() {
         String s = "Event name: " + getName() + " Venue: " + getVenue() + " Sport: " + getSport() + 
                 " Athletes Competing: ";

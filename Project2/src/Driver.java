@@ -5,30 +5,48 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-
+/**
+ * This class is the driver program for this project.
+ * 
+ * @author Lukas Spooner, CSCI 1082-70, Project 2
+ *
+ */
 public class Driver {
-
+	
+	/**
+	 * This is the main method for the program.
+	 * 
+	 * @param args
+	 */
     public static void main(String[] args) {
     	
     	try {
     		FileInputStream fileInputStream = new FileInputStream("events.txt");
     		Scanner inFS = new Scanner(fileInputStream);
+
     		
     		while (inFS.hasNext()) {
         		String currLine = inFS.next();
         		String[] eventInputStream = currLine.split("%", 3);
         		driveCompetitions(eventInputStream[0], eventInputStream[1], eventInputStream[2]);
         	}
-        	
+    
         	inFS.close();
         	
 		} catch (FileNotFoundException e) {
-			System.out.print("Unable to find file event.txt");
+			System.out.print("Unable to find file events.txt");
 		} catch (IOException e) {
 			System.out.print("Unable to close file");
 		}
     }
-     
+    
+    /**
+     * This method sets up the events and drives the competitions.
+     * 
+     * @param setEvent - The string value to be set as the name of the event.
+     * @param setVenue - The string value to be used to find the coordinating venue in the Venue enum which will be set as the Venue in the event.
+     * @param setSport - The string value to be used to find the coordinating sport in the Sport enum which will be set as the Sport in the event
+     */
     private static void driveCompetitions (String setEvent, String setVenue, String setSport) {
        ArrayList<Athlete> athletes = new ArrayList<Athlete>();
        
@@ -61,11 +79,11 @@ public class Driver {
     	   }
        }
        
-       Sport s = Sport.selectRandomSport();
+       Sport s = Sport.valueOf(sport);
            
        System.out.println("******->" + s);
 
-       Event e = new Event(eventName, Venue.selectRandomVenue(), s, athletes);
+       Event e = new Event(eventName, Venue.valueOf(venue), s, athletes);
            
        System.out.println ("Winning athlete of the " + e.getName() + " event is " + e.compete());
                         

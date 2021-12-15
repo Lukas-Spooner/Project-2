@@ -1,5 +1,10 @@
 
-
+/**
+ * This class is a subclass of athlete and represendts a marathon swimmer.
+ * 
+ * @author Lukas Spooner
+ *
+ */
 public class MarathonSwimmer extends Athlete {
 	private int endurance;
 	
