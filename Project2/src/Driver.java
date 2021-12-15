@@ -11,19 +11,19 @@ public class Driver {
     public static void main(String[] args) {
     	
     	try {
-    		FileInputStream fileInputStream = new FileInputStream("Names.txt");
+    		FileInputStream fileInputStream = new FileInputStream("events.txt");
     		Scanner inFS = new Scanner(fileInputStream);
     		
     		while (inFS.hasNext()) {
         		String currLine = inFS.next();
-        		String[] eventInputStream = currLine.split("%", 2);
+        		String[] eventInputStream = currLine.split("%", 3);
         		driveCompetitions(eventInputStream[0], eventInputStream[1], eventInputStream[2]);
         	}
         	
         	inFS.close();
         	
 		} catch (FileNotFoundException e) {
-			System.out.print("Unable to find file");
+			System.out.print("Unable to find file event.txt");
 		} catch (IOException e) {
 			System.out.print("Unable to close file");
 		}
@@ -61,18 +61,16 @@ public class Driver {
     	   }
        }
        
-       for (int i = 0; i < 5; i++) {
-           Sport s = Sport.selectRandomSport();
+       Sport s = Sport.selectRandomSport();
            
-           System.out.println("******->" + s);
+       System.out.println("******->" + s);
 
-           Event e = new Event("Event" + i, Venue.selectRandomVenue(), s, athletes);
+       Event e = new Event(eventName, Venue.selectRandomVenue(), s, athletes);
            
-           System.out.println ("Winning athlete of the " + e.getName() + " event is " + e.compete());
+       System.out.println ("Winning athlete of the " + e.getName() + " event is " + e.compete());
                         
-       }
        
-       
+       athletes.clear();
     }    
     
     public static String getRandomName() {
@@ -91,7 +89,7 @@ public class Driver {
         	fileInputStream.close();
         	
 		} catch (FileNotFoundException e) {
-			System.out.print("Unable to find file");
+			System.out.print("Unable to find file Names.txt");
 		} catch (IOException e) {
 			System.out.print("Unable to close file");
 		}
@@ -104,13 +102,17 @@ public class Driver {
     public static MarathonSwimmer generateSwimmer(){
     	String name = getRandomName();
     	Random randInt = new Random();
-    	
     	MarathonSwimmer swimmer = new MarathonSwimmer();
-    	swimmer.setName(name);
-    	swimmer.setHomeNation(Country.selectRandomCountry());
-		swimmer.setSkill(randInt.nextInt(10) + 1);
-    	swimmer.setMedals(randInt.nextInt(5));
-    	swimmer.setEndurance(randInt.nextInt(101));
+    	
+    	try {
+    		swimmer.setName(name);
+    		swimmer.setHomeNation(Country.selectRandomCountry());
+    		swimmer.setSkill(randInt.nextInt(10) + 1);
+    		swimmer.setMedals(randInt.nextInt(5));
+    		swimmer.setEndurance(randInt.nextInt(101));
+    	} catch (IllegalArgumentException e) {
+    		System.out.print("Invalid argument in generateSwimmer() method.");
+    	}
     	
     	return swimmer;
     }
@@ -118,13 +120,17 @@ public class Driver {
     public static Skateboarder generateSkateboarder() {
     	String name = getRandomName();
     	Random randInt = new Random();
-    	
     	Skateboarder skateboarder = new Skateboarder();
-    	skateboarder.setName(name);
-    	skateboarder.setHomeNation(Country.selectRandomCountry());
-    	skateboarder.setSkill(randInt.nextInt(10) + 1);
-    	skateboarder.setMedals(randInt.nextInt(5));
-    	skateboarder.setStyle(randInt.nextInt(10));
+    	
+    	try {
+    		skateboarder.setName(name);
+    		skateboarder.setHomeNation(Country.selectRandomCountry());
+    		skateboarder.setSkill(randInt.nextInt(10) + 1);
+    		skateboarder.setMedals(randInt.nextInt(5));
+    		skateboarder.setStyle(randInt.nextInt(10));
+    	} catch (IllegalArgumentException e) {
+    		System.out.print("Invalid argument in generateSkateboarder() method.");
+    	}
     	
     	return skateboarder;
     }
@@ -132,13 +138,17 @@ public class Driver {
     public static SportClimber generateSportClimber() {
     	String name = getRandomName();
     	Random randInt = new Random();
-    	
     	SportClimber sportClimber = new SportClimber();
-    	sportClimber.setName(name);
-    	sportClimber.setHomeNation(Country.selectRandomCountry());
-    	sportClimber.setSkill(randInt.nextInt(10) + 1);
-    	sportClimber.setMedals(randInt.nextInt(5));
-    	sportClimber.setStrength(randInt.nextInt(150) + 51);
+    	
+    	try {
+    		sportClimber.setName(name);
+    		sportClimber.setHomeNation(Country.selectRandomCountry());
+    		sportClimber.setSkill(randInt.nextInt(10) + 1);
+    		sportClimber.setMedals(randInt.nextInt(5));
+    		sportClimber.setStrength(randInt.nextInt(150) + 51);
+    	} catch (IllegalArgumentException e) {
+    		System.out.print("Invalid argument in generateSportClimber() method.");
+    	}
     	
     	return sportClimber;
     }
@@ -146,13 +156,17 @@ public class Driver {
     public static Bicyclist generateBicyclist() {
     	String name = getRandomName();
     	Random randInt = new Random();
-    	
     	Bicyclist bicyclist = new Bicyclist();
-    	bicyclist.setName(name);
-    	bicyclist.setHomeNation(Country.selectRandomCountry());
-    	bicyclist.setSkill((randInt.nextInt(10) + 1));
-    	bicyclist.setMedals(randInt.nextInt(5));
-    	bicyclist.setSpeed((randInt.nextInt(150) + 51));
+    	
+    	try {
+    		bicyclist.setName(name);
+    		bicyclist.setHomeNation(Country.selectRandomCountry());
+    		bicyclist.setSkill((randInt.nextInt(10) + 1));
+    		bicyclist.setMedals(randInt.nextInt(5));
+    		bicyclist.setSpeed((randInt.nextInt(150) + 51));
+    	} catch (IllegalArgumentException e) {
+    		System.out.print("Invalid argument in generateBicyclist() method.");
+    	}
     	
     	return bicyclist;
     }

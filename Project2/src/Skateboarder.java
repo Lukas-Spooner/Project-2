@@ -7,7 +7,7 @@ public class Skateboarder extends Athlete {
 		return style;
 	}
 	
-	public void setStyle(int style) {
+	public void setStyle(int style) throws IllegalArgumentException {
 		this.style = style;
 	}
 	

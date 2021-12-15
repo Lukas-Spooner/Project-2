@@ -10,7 +10,7 @@ public class Bicyclist extends Athlete {
 		return speed;
 	}
 	
-	public void setSpeed(int speed) {
+	public void setSpeed(int speed) throws IllegalArgumentException {
 		this.speed = speed;
 	}
 	

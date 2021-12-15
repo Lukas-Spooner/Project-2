@@ -7,7 +7,7 @@ public class SportClimber extends Athlete {
 		return strength;
 	}
 	
-	public void setStrength(int strength) {
+	public void setStrength(int strength) throws IllegalArgumentException {
 		this.strength = strength;
 	}
 	

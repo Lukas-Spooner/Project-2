@@ -7,7 +7,7 @@ public class MarathonSwimmer extends Athlete {
 		return endurance;
 	}
 	
-	public void setEndurance(int endurance) {
+	public void setEndurance(int endurance) throws IllegalArgumentException {
 		this.endurance = endurance;
 	}
 	

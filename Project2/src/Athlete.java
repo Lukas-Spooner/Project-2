@@ -24,7 +24,7 @@ public class Athlete {
         return name;
     }
     
-    public void setName(String name) {
+    public void setName(String name) throws IllegalArgumentException {
         if (name.length() > 1)
             this.name = name;
         else {
@@ -36,7 +36,7 @@ public class Athlete {
         return homeCountry;
     }
     
-    public void setHomeNation(Country home) {
+    public void setHomeNation(Country home) throws IllegalArgumentException {
         homeCountry = home;
     }
     
@@ -44,7 +44,7 @@ public class Athlete {
         return skill;
     }
     
-    public void setSkill(int skill) {
+    public void setSkill(int skill) throws IllegalArgumentException {
         if (skill >=0 && skill <= 10) {
             this.skill = skill;
         } else {
@@ -56,7 +56,7 @@ public class Athlete {
         return medals;
     }
     
-    public void setMedals(int medals) {
+    public void setMedals(int medals) throws IllegalArgumentException {
         if (medals < 0) {
             this.medals = 0;
         } else {
