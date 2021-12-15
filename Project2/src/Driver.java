@@ -1,6 +1,7 @@
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -60,8 +61,6 @@ public class Driver {
     	   }
        }
        
-       
-       
        for (int i = 0; i < 5; i++) {
            s = Sport.selectRandomSport();
            
@@ -72,6 +71,8 @@ public class Driver {
            System.out.println ("Winning athlete of the " + e.getName() + " event is " + e.compete());
                         
        }
+       
+       
     }    
     
     public String getRandomName() {
@@ -145,9 +146,9 @@ public class Driver {
     	Bicyclist bicyclist = new Bicyclist();
     	bicyclist.setName(name);
     	bicyclist.setHomeNation(Country.selectRandomCountry());
-    	bicyclist.setSkill(randInt.nextInt(10) + 1);
+    	bicyclist.setSkill((randInt.nextInt(10) + 1));
     	bicyclist.setMedals(randInt(5));
-    	bicyclist.setStrength(randInt.nextInt(150) + 51);
+    	bicyclist.setSpeed((randInt.nextInt(150) + 51));
     	
     	return bicyclist;
     }

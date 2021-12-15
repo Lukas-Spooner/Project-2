@@ -17,7 +17,7 @@ public class Skateboarder extends Athlete {
 	}
 	
 	@Override
-	public string toString() {
+	public String toString() {
 		return super.toString() + ", Style: " + style;
 	}
 }

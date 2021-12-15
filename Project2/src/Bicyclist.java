@@ -8,7 +8,7 @@ public class Bicyclist extends Athlete {
 	
 	
 	public int getSpeed() {
-		return endurance;
+		return speed;
 	}
 	
 	public void setSpeed(int speed) {
@@ -22,7 +22,7 @@ public class Bicyclist extends Athlete {
 	}
 	
 	@Override
-	public string toString() {
+	public String toString() {
 		return super.toString() + ", speed: " + speed;
 	}
 }

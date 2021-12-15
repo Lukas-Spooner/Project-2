@@ -17,7 +17,7 @@ public class MarathonSwimmer extends Athlete {
 	}
 	
 	@Override
-	public string toString() {
+	public String toString() {
 		return super.toString() + ", Endurance: " + endurance;
 	}
 	

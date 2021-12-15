@@ -9,7 +9,6 @@ public class Athlete {
     public Athlete() {
         this.name = "DEFAULT";
         this.homeCountry = Country.selectRandomCountry();
-        this.specialty = Sport.selectRandomSport();
         this.skill = 5;
         this.medals = 0;
     }
@@ -17,7 +16,6 @@ public class Athlete {
     public Athlete (String name, Country home, Sport specialty, int skill, int medals) {
         this.name = name;
         this.homeCountry = home;
-        this.specialty = specialty;
         this.skill = skill;
         this.medals = medals;
     }
@@ -76,7 +74,6 @@ public class Athlete {
         
         if ((getName().equalsIgnoreCase (a.getName())) &&
             (getHomeCountry() == a.getHomeCountry()) &&
-            (getSpecialty() == a.getSpecialty()) &&
             (getSkill() == a.getSkill()) &&
             (getMedals() == a.getMedals()))
             return true;
@@ -86,9 +83,8 @@ public class Athlete {
     }
     
     public String toString () {
-        return "Athlete name: " + getName() + ", Home Country: " + getHomeCountry() +
-                ", Specialty: " + getSpecialty() + ", Skill level: " + getSkill() + 
-                ", Number of medals: " + medals;
+        return "Athlete name: " + getName() + ", Home Country: " + getHomeCountry() + 
+        	   ", Skill level: " + getSkill() + ", Number of medals: " + medals;
     }
     
     
