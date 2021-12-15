@@ -81,7 +81,7 @@ public class Driver {
        
        Sport s = Sport.valueOf(sport);
            
-       System.out.println("******->" + s);
+       System.out.println("\n******-> " + s);
 
        Event e = new Event(eventName, Venue.valueOf(venue), s, athletes);
            
@@ -91,6 +91,11 @@ public class Driver {
        athletes.clear();
     }    
     
+    /**
+     * This method returns a random name to the user from the Names.txt file.
+     * 
+     * @return - returns the variable name of type string
+     */
     public static String getRandomName() {
     	String name = null;
     	
@@ -117,6 +122,11 @@ public class Driver {
     	return name;
     }
     
+    /**
+     * This method creates a marathon swimmer, populates its values, and returns it to the user.
+     * 
+     * @return - returns swimmer of type MarathonSwimmer, a subclass of Athlete.
+     */
     public static MarathonSwimmer generateSwimmer(){
     	String name = getRandomName();
     	Random randInt = new Random();
@@ -135,6 +145,11 @@ public class Driver {
     	return swimmer;
     }
     
+    /**
+     * This method creates a skateboarder, populates its values, and returns it to the user.
+     * 
+     * @return - returns skateboarder of type Skateboarder, a subclass of Athlete.
+     */
     public static Skateboarder generateSkateboarder() {
     	String name = getRandomName();
     	Random randInt = new Random();
@@ -153,6 +168,11 @@ public class Driver {
     	return skateboarder;
     }
     
+    /**
+     * This method creates a sport climber, populates its values, and returns it to the user.
+     * 
+     * @return - returns sportClimber of type SportClimber, a subclass of Athlete.
+     */
     public static SportClimber generateSportClimber() {
     	String name = getRandomName();
     	Random randInt = new Random();
@@ -171,6 +191,11 @@ public class Driver {
     	return sportClimber;
     }
     
+    /**
+     * This method creates a bicyclist, populates its values, and returns it to the user.
+     * 
+     * @return - returns bicyclist of type Bicyclist, a subclass of Athlete.
+     */
     public static Bicyclist generateBicyclist() {
     	String name = getRandomName();
     	Random randInt = new Random();

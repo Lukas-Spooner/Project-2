@@ -2,6 +2,12 @@
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * This class represendts an event.
+ * 
+ * @author Lukas Spooner
+ *
+ */
 public class Event {
     
     private String name;
@@ -9,6 +15,9 @@ public class Event {
     private Sport sport;
     private ArrayList<Athlete> athletes = new ArrayList<Athlete>();
     
+    /**
+     * This is the default constructor for the class.
+     */
     public Event () {
     	this.name = "DEFAULT";
     	this.venue = Venue.selectRandomVenue();
@@ -18,6 +27,14 @@ public class Event {
         
     }
     
+    /**
+     * This is the constructor for the class.
+     * 
+     * @param name - the String value to be set for the instance variable name.
+     * @param venue - the Venue value to be set for the instance variable venue.
+     * @param sport - the Sport value to be set for the instance variable sport.
+     * @param athleteList - the ArrayList<Athlete> value to be set for the instance variable athletes.
+     */
     public Event (String name, Venue venue, Sport sport, ArrayList<Athlete> athleteList) {
         setName(name);
         setVenue(venue);
@@ -25,30 +42,65 @@ public class Event {
         setAthletes(athleteList);
     }
     
+    /**
+     * This is an accessor method for the instance variable name
+     * 
+     * @return - returns the String value of name.
+     */
     public String getName() {
         return name;
     }
     
-    public void setName(String name) {
+    /**
+     * This is the mutator method for the instance variable name
+     * 
+     * @param name - the string value to be set as the new value of the instance variable name
+     */
+    public void setName(String name) throws IllegalArgumentException {
         this.name = name;
     }
     
+    /**
+     * This is an accessor method for the instance variable venue
+     * 
+     * @return - returns the Venue value of venue.
+     */
     public Venue getVenue() {
         return venue;
     }
     
-    public void setVenue (Venue venue) {
+    /**
+     * This is the mutator method for the instance variable venue
+     * 
+     * @param name - the Venueg value to be set as the new value of the instance variable venue
+     */
+    public void setVenue (Venue venue) throws IllegalArgumentException {
         this.venue = venue;
     }
     
+    /**
+     * This is an accessor method for the instance variable sport
+     * 
+     * @return - returns the Sport value of sport.
+     */
     public Sport getSport () {
         return sport;
     }
     
-    public void setSport(Sport sport) {
+    /**
+     * This is the mutator method for the instance variable sport
+     * 
+     * @param name - the Sport value to be set as the new value of the instance variable sport
+     */
+    public void setSport(Sport sport) throws IllegalArgumentException {
         this.sport = sport;
     }
     
+    /**
+     * This is an accessor method for the instance variable athletes
+     * 
+     * @return - returns the Arraylist value of athletes.
+     */
     public ArrayList<Athlete> getAthletes() {
     	ArrayList<Athlete> copy = new ArrayList<Athlete>();
         for (int i = 0; i < athletes.size(); i++) {
@@ -57,7 +109,12 @@ public class Event {
         return copy;
      }
     
-    public void setAthletes(ArrayList<Athlete> athletes) {
+    /**
+     * This is the mutator method for the instance variable name
+     * 
+     * @param name - the string value to be set as the new value of the instance variable name
+     */
+    public void setAthletes(ArrayList<Athlete> athletes) throws IllegalArgumentException {
     	
         if (athletes == null || athletes.size() < 1) {
             System.out.println ("Competitions must have at least one Athlete!");
@@ -69,7 +126,9 @@ public class Event {
         this.athletes = copy;
     }
     
-    
+    /**
+     * This method returns a String value containing all of the information stored in Event.
+     */
     @Override
     public String toString() {
         String s = "Event name: " + getName() + " Venue: " + getVenue() + " Sport: " + getSport() + 
@@ -85,7 +144,12 @@ public class Event {
         return s;
     }
     
-    
+    /**
+     * This method pits all of the Athletes stored within the class in a competition to see who wins and returns 
+     * the winner of type Athlete to the user.
+     * 
+     * @return - returns winner of type Athlete to the user.
+     */
     public Athlete compete() {
         
         int len = getAthletes().size();
@@ -102,6 +166,12 @@ public class Event {
         return winner;
     }
     
+    /**
+     * This method is used to search through an array of scores and returns the index of the biggest score.
+     * 
+     * @param scores - the int[] array to be searched through to find the biggest score.
+     * @return - returns the index of the scores array with the highest int value.
+     */
     private int findBiggestScore (int[] scores) {
        
         int index = 0;
@@ -115,7 +185,13 @@ public class Event {
         }
         return index;
     }
-
+    
+    /**
+     * This method overrides the standard equals() method and instead compares two events to one another.
+     * 
+     * @param e - the Event object to be compared to another.
+     * @return - returns false if the Event objects are not equal and true if they are.
+     */
     public boolean equals (Event e) {
  
         if (e == null)
